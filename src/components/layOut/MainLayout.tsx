@@ -2,36 +2,37 @@ import { Layout, Menu, MenuProps } from "antd";
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { Children, createElement } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import { adminSidebarItems } from "../../routes/admin.routes";
 const { Header, Content, Footer, Sider } = Layout;
 
-const items : MenuProps['items'] = [
-    {
-        key : 'Dashboard',
-        label : <NavLink to='/admin/dashboard'>Dashboard</NavLink>,
-    },
-    {
-        key : '2',
-        label : 'Profiles',
-    },
-    {
-        key : 'User Management',
-        label : 'User Management',
-        children : [
-            {
-                key : 'create-Admin',
-                label :  <NavLink to='/admin/create-admin'>Create-admin</NavLink>,
-            },
-            {
-                key : 'create-faculty',
-                label :  <NavLink to='/admin/create-faculty'>create-faculty</NavLink>,
-            },
-            {
-                key : 'create-student',
-                label :  <NavLink to='/admin/create-student'>create-student</NavLink>,
-            },
-        ]
-    }
-];
+// const items : MenuProps['items'] = [
+//     {
+//         key : 'Dashboard',
+//         label : <NavLink to='/admin/dashboard'>Dashboard</NavLink>,
+//     },
+//     {
+//         key : '2',
+//         label : 'Profiles',
+//     },
+//     {
+//         key : 'User Management',
+//         label : 'User Management',
+//         children : [
+//             {
+//                 key : 'create-Admin',
+//                 label :  <NavLink to='/admin/create-admin'>Create-admin</NavLink>,
+//             },
+//             {
+//                 key : 'create-faculty',
+//                 label :  <NavLink to='/admin/create-faculty'>create-faculty</NavLink>,
+//             },
+//             {
+//                 key : 'create-student',
+//                 label :  <NavLink to='/admin/create-student'>create-student</NavLink>,
+//             },
+//         ]
+//     }
+// ];
 
 const MainLayout = () => {
     return (
@@ -49,7 +50,7 @@ const MainLayout = () => {
           <div style={{color : 'white', textAlign : 'center', height : '4rem', display : 'flex', justifyContent : 'center', alignItems : 'center'}} >
             <h1>PH uni</h1>
           </div>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={adminSidebarItems} />
         </Sider>
         <Layout>
           <Header style={{ padding: 0, }} />
