@@ -1,29 +1,34 @@
 import { Layout, Menu, MenuProps } from "antd";
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { Children, createElement } from "react";
+import { NavLink, Outlet } from "react-router-dom";
 const { Header, Content, Footer, Sider } = Layout;
 
 const items : MenuProps['items'] = [
     {
-        key : '1',
-        label : 'Dashboard',
+        key : 'Dashboard',
+        label : <NavLink to='/admin/dashboard'>Dashboard</NavLink>,
     },
     {
         key : '2',
         label : 'Profiles',
     },
     {
-        key : '3',
+        key : 'User Management',
         label : 'User Management',
         children : [
             {
-                key : '11',
-                label : 'create admin'
+                key : 'create-Admin',
+                label :  <NavLink to='/admin/create-admin'>Create-admin</NavLink>,
             },
             {
-                key : '12',
-                label : 'create student'
-            }
+                key : 'create-faculty',
+                label :  <NavLink to='/admin/create-faculty'>create-faculty</NavLink>,
+            },
+            {
+                key : 'create-student',
+                label :  <NavLink to='/admin/create-student'>create-student</NavLink>,
+            },
         ]
     }
 ];
@@ -56,7 +61,7 @@ const MainLayout = () => {
               
               }}
             >
-              <h1>the main content should go here</h1>
+              <Outlet/>
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
