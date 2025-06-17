@@ -10,12 +10,10 @@ import { RootState } from '../store';
 import { logout, setUser } from '../features/auth/authSlice';
 import { toast } from 'sonner';
 
-
-
 const baseQuery = fetchBaseQuery({
-    baseUrl: 'https://ph-university-backend-seven.vercel.app/api/v1',
-    credentials: 'include',
-      prepareHeaders: (headers, { getState }) => {
+  baseUrl: 'https://ph-university-backend-seven.vercel.app/api/v1',
+  credentials: 'include',
+  prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
 
     if (token) {
@@ -24,7 +22,7 @@ const baseQuery = fetchBaseQuery({
 
     return headers;
   },
-  })
+});
 
 const baseQueryWithRefreshToken: BaseQueryFn<
   FetchArgs,
@@ -34,9 +32,8 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   let result = await baseQuery(args, api, extraOptions);
 
   if (result?.error?.status === 404) {
-    toast.error('user not found');
+    toast.error('Resource not found');
   }
-
   if (result?.error?.status === 401) {
     //* Send Refresh
     console.log('Sending refresh token');
