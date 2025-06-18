@@ -19,13 +19,13 @@ export type TTableData = Pick<
 // Match your API response:
 type TStudentApiData = {
   data: any;
-  meta: TMeta;
-  result: TStudent[];
+  meta: TMeta | undefined;
+  result: TStudent[] | undefined;
 };
 type TResponse<T> = { data: T; meta?: any };
 
 const StudentData = () => {
-  const [params, setParams] = useState<TQueryParam[]>([]);
+  const [params, setParams] = useState<TQueryParam[]>([]) ;
   const [page, setPage] = useState(1);
 
   // This is correct for your API response
@@ -36,7 +36,7 @@ const StudentData = () => {
     { name: 'page', value: page },
     { name: 'sort', value: 'id' },
     ...params,
-  ]);
+  ])  as ReturnType<typeof useGetAllStudentsQuery>;;
 
   
 
