@@ -21,12 +21,14 @@ export interface TStudent {
   academicDepartment: TAcademicDepartment;
   academicFaculty: TAcademicFaculty;
   fullName: string;
+  result?: string;
 }
 
 export type TUser = {
   _id: string;
   id: string;
   email: string;
+  contactNo?: string;
   needsPasswordChange: boolean;
   role: string;
   status: string;
