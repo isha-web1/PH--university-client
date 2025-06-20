@@ -10,6 +10,7 @@ export type TSemester = {
   maxCredit: number;
   createdAt: string;
   updatedAt: string;
+  result?: string;
 };
 
 export type TCourse = {

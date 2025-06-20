@@ -17,6 +17,7 @@ export type TAcademicFaculty = {
   createdAt: string;
   updatedAt: string;
   __v: number;
+  result?: string;
 };
 
 export type TAcademicDepartment = {
@@ -25,4 +26,5 @@ export type TAcademicDepartment = {
   academicFaculty: TAcademicFaculty;
   createdAt: string;
   updatedAt: string;
+  result?: string;
 };
