@@ -4,6 +4,7 @@ export interface TStudent {
   _id: string;
   id: string;
   user: TUser;
+  title: string;
   name: TName;
   gender: string;
   dateOfBirth: string;
@@ -22,6 +23,8 @@ export interface TStudent {
   academicFaculty: TAcademicFaculty;
   fullName: string;
   result?: string;
+  prefix: string;
+  code : number
 }
 
 export type TUser = {
